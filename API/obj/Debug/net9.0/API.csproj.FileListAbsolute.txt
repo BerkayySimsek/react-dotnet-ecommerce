@@ -155,3 +155,4 @@ C:\Users\berka\OneDrive\Masaüstü\Software\e-commerce\API\bin\Debug\net9.0\Micr
 C:\Users\berka\OneDrive\Masaüstü\Software\e-commerce\API\bin\Debug\net9.0\Microsoft.Extensions.Primitives.dll
 C:\Users\berka\OneDrive\Masaüstü\Software\e-commerce\API\bin\Debug\net9.0\System.Text.Json.dll
 C:\Users\berka\OneDrive\Masaüstü\Software\e-commerce\API\bin\Debug\net9.0\API.staticwebassets.runtime.json
+C:\Users\berka\OneDrive\Masaüstü\Software\e-commerce\API\obj\Debug\net9.0\API.sourcelink.json
