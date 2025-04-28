@@ -16,13 +16,13 @@ public class CartController : ControllerBase
         _context = context;
     }
 
-    [HttpGet("/api/GetCart")]
+    [HttpGet]
     public async Task<ActionResult<CartDTO>> GetCart()
     {
         return CartToDTO(await GetOrCreate());
     }
 
-    [HttpPost("/api/AddCart")]
+    [HttpPost]
     public async Task<ActionResult> AddItemToCart(int productId, int quantity)
     {
         var cart = await GetOrCreate();
@@ -42,7 +42,7 @@ public class CartController : ControllerBase
         return BadRequest(new ProblemDetails { Title = "The product can not be added to cart" });
     }
 
-    [HttpDelete("/api/DeleteCart")]
+    [HttpDelete]
     public async Task<ActionResult> DeleteItemFromCart(int productId, int quantity)
     {
         var cart = await GetOrCreate();
