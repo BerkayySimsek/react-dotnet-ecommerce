@@ -1,15 +1,23 @@
-import { CircularProgress, Divider, Grid, Table, TableBody, TableCell, TableContainer, TableRow, Typography } from "@mui/material";
+import { CircularProgress, Divider, Grid, Stack, Table, TableBody, TableCell, TableContainer, TableRow, Typography } from "@mui/material";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import { IProduct } from "../../model/IProduct";
 import requests from "../../api/requests";
 import NotFound from "../../errors/NotFound";
+import { LoadingButton } from "@mui/lab";
+import { AddShoppingCart } from "@mui/icons-material";
+import { useCartContext } from "../../context/CartContext";
+import { toast } from "react-toastify";
 
 export default function ProductDetailsPage() {
 
+    const { cart, setCart } = useCartContext();
     const { id } = useParams<{ id: string }>();
     const [product, setProducts] = useState<IProduct | null>(null);
     const [loading, setLoading] = useState(true);
+    const [isAdded, setIsAdded] = useState(false);
+
+    const item = cart?.cartItems.find(i => i.productId == product?.id);
 
     useEffect(() => {
         if (id) {
@@ -19,6 +27,19 @@ export default function ProductDetailsPage() {
                 .finally(() => setLoading(false));
         }
     }, [id]);
+
+    function handleAddItem(id: number) {
+        setIsAdded(true)
+
+        requests.Cart.addItem(id)
+            .then(cart => {
+                setCart(cart);
+                toast.success("Added to your cart.");
+            })
+            .catch(error => console.log(error))
+            .finally(() => setIsAdded(false))
+    }
+
     if (loading) return <CircularProgress />
     if (!product) return <NotFound />
 
@@ -48,6 +69,21 @@ export default function ProductDetailsPage() {
                         </TableBody>
                     </Table>
                 </TableContainer>
+                <Stack direction="row" spacing={2} sx={{mt:3}} alignItems="center">
+                    <LoadingButton
+                        variant="outlined"
+                        loadingPosition="start"
+                        startIcon={<AddShoppingCart />}
+                        loading={isAdded}
+                        onClick={() => handleAddItem(product.id)}>
+                        Sepete Ekle
+                    </LoadingButton>
+                    {
+                        item?.quantity! > 0 && (
+                            <Typography variant="body2">{item?.quantity} items added to your cart.</Typography>
+                        )
+                    }
+                </Stack>
             </Grid>
         </Grid>
 
