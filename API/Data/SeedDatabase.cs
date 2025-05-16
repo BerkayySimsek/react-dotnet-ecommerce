@@ -18,7 +18,7 @@ public static class SeedDatabase
 
         if (!roleManager.Roles.Any())
         {
-            var customer = new AppRole { Name = "Customer" };
+            var customer = new AppRole { Name = "customer" };
             var admin = new AppRole { Name = "admin" };
 
             await roleManager.CreateAsync(customer);

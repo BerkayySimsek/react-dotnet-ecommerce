@@ -1,6 +1,7 @@
 using System.Formats.Asn1;
 using API.DTO;
 using API.Entity;
+using API.Services;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
@@ -11,10 +12,12 @@ namespace API.Controllers;
 public class AccountController : ControllerBase
 {
     private readonly UserManager<AppUser> _userManager;
+    private readonly TokenService _tokenService;
 
-    public AccountController(UserManager<AppUser> userManager)
+    public AccountController(UserManager<AppUser> userManager, TokenService tokenService)
     {
         _userManager = userManager;
+        _tokenService = tokenService;
     }
 
     [HttpPost("/api/Login")]
@@ -31,11 +34,12 @@ public class AccountController : ControllerBase
 
         if (result)
         {
-            return Ok(new { token = "token" });
+            return Ok(new { token = await _tokenService.GenerateToken(user) });
         }
 
         return Unauthorized();
     }
+
 
     [HttpPost("/api/Register")]
     public async Task<IActionResult> CreateUser(RegisterDto model)

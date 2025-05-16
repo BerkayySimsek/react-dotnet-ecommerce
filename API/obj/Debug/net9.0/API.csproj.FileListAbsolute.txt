@@ -157,3 +157,11 @@ C:\Users\berka\OneDrive\Masaüstü\Software\e-commerce\API\bin\Debug\net9.0\Syst
 C:\Users\berka\OneDrive\Masaüstü\Software\e-commerce\API\bin\Debug\net9.0\API.staticwebassets.runtime.json
 C:\Users\berka\OneDrive\Masaüstü\Software\e-commerce\API\obj\Debug\net9.0\API.sourcelink.json
 C:\Users\berka\OneDrive\Masaüstü\Software\e-commerce\api\bin\Debug\net9.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+C:\Users\berka\OneDrive\Masaüstü\Software\e-commerce\api\bin\Debug\net9.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\berka\OneDrive\Masaüstü\Software\e-commerce\api\bin\Debug\net9.0\Microsoft.IdentityModel.Abstractions.dll
+C:\Users\berka\OneDrive\Masaüstü\Software\e-commerce\api\bin\Debug\net9.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\berka\OneDrive\Masaüstü\Software\e-commerce\api\bin\Debug\net9.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\berka\OneDrive\Masaüstü\Software\e-commerce\api\bin\Debug\net9.0\Microsoft.IdentityModel.Protocols.dll
+C:\Users\berka\OneDrive\Masaüstü\Software\e-commerce\api\bin\Debug\net9.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\berka\OneDrive\Masaüstü\Software\e-commerce\api\bin\Debug\net9.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\berka\OneDrive\Masaüstü\Software\e-commerce\api\bin\Debug\net9.0\System.IdentityModel.Tokens.Jwt.dll
