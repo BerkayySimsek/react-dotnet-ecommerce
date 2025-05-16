@@ -2,7 +2,7 @@ import { createBrowserRouter, Navigate } from "react-router";
 import HomePage from "../features/HomePage";
 import AboutPage from "../features/AboutPage";
 import ContactPage from "../features/ContactPage";
-import App from "../components/App";
+import App from "../layout/App";
 import CatalogPage from "../features/catalog/CatalogPage";
 import ProductDetailsPage from "../features/catalog/ProductDetails";
 import ErrorPage from "../features/catalog/ErrorPage";
