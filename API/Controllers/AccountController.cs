@@ -30,7 +30,7 @@ public class AccountController : ControllerBase
             return BadRequest(new { message = "username is wrong" });
         }
 
-        var result = await _userManager.CheckPasswordAsync(user, model.Password);
+        var result = await _userManager.CheckPasswordAsync(user, model.Password!);
 
         if (result)
         {
@@ -56,7 +56,7 @@ public class AccountController : ControllerBase
             Email = model.Email,
         };
 
-        var result = await _userManager.CreateAsync(user, model.Password);
+        var result = await _userManager.CreateAsync(user, model.Password!);
 
         if (result.Succeeded)
         {

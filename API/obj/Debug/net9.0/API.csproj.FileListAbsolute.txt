@@ -165,3 +165,4 @@ C:\Users\berka\OneDrive\Masaüstü\Software\e-commerce\api\bin\Debug\net9.0\Micr
 C:\Users\berka\OneDrive\Masaüstü\Software\e-commerce\api\bin\Debug\net9.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 C:\Users\berka\OneDrive\Masaüstü\Software\e-commerce\api\bin\Debug\net9.0\Microsoft.IdentityModel.Tokens.dll
 C:\Users\berka\OneDrive\Masaüstü\Software\e-commerce\api\bin\Debug\net9.0\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\berka\OneDrive\Masaüstü\Software\e-commerce\api\bin\Debug\net9.0\Scalar.AspNetCore.dll
