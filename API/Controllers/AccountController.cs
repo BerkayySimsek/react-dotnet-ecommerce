@@ -20,14 +20,14 @@ public class AccountController : ControllerBase
         _tokenService = tokenService;
     }
 
-    [HttpPost("/api/Login")]
+    [HttpPost("login")]
     public async Task<IActionResult> Login(LoginDto model)
     {
         var user = await _userManager.FindByNameAsync(model.UserName);
 
         if (user == null)
         {
-            return BadRequest(new { message = "username is wrong" });
+            return BadRequest(new ProblemDetails { Title = "username is wrong" });
         }
 
         var result = await _userManager.CheckPasswordAsync(user, model.Password!);
@@ -41,7 +41,7 @@ public class AccountController : ControllerBase
     }
 
 
-    [HttpPost("/api/Register")]
+    [HttpPost("register")]
     public async Task<IActionResult> CreateUser(RegisterDto model)
     {
         if (!ModelState.IsValid)
