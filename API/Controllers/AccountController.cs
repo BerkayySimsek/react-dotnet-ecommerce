@@ -2,6 +2,7 @@ using System.Formats.Asn1;
 using API.DTO;
 using API.Entity;
 using API.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
@@ -36,7 +37,7 @@ public class AccountController : ControllerBase
         {
             return Ok(new UserDTO
             {
-                Name=user.Name!,
+                Name = user.Name!,
                 Token = await _tokenService.GenerateToken(user)
             });
         }
@@ -70,4 +71,24 @@ public class AccountController : ControllerBase
 
         return BadRequest(result.Errors);
     }
+
+
+    [Authorize]
+    [HttpGet("getuser")]
+    public async Task<ActionResult<UserDTO>> GetUser()
+    {
+        var user = await _userManager.FindByNameAsync(User.Identity?.Name!);
+
+        if (user == null)
+        {
+            return BadRequest(new ProblemDetails { Title = "username or password is wrong" });
+        }
+
+        return new UserDTO
+        {
+            Name = user.Name!,
+            Token = await _tokenService.GenerateToken(user)
+        };
+    }
+
 }
