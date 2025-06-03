@@ -1,4 +1,4 @@
-import { Box, Button, Grid, Paper, Step, StepLabel, Stepper } from "@mui/material";
+import { Box, Button, Grid, Paper, Stack, Step, StepLabel, Stepper, Typography } from "@mui/material";
 import Info from "./Info";
 import AddressForm from "./AddressForm";
 import PaymentForm from "./PaymentForm";
@@ -57,7 +57,17 @@ export default function CheckoutPage() {
                         </Box>
                         <Box>
                             {activeStep === steps.length ? (
-                                <h2>Order completed.</h2>
+                                <Stack spacing={2}>
+                                    <Typography variant="h1">📦</Typography>
+                                    <Typography variant="h5">Thank you. We have received your order.</Typography>
+                                    <Typography variant="body1" sx={{color:"text.secondary"}}>
+                                        Order number <strong>#1234</strong>. We will send you an email when your order is confirmed.
+                                    </Typography>
+                                    <Button 
+                                        sx={{alignSelf:"start",width:{xs:"100%",sm:"auto"}}} 
+                                        variant="contained">List orders
+                                    </Button>
+                                </Stack>
                             ) : (
                                 <form onSubmit={methods.handleSubmit(handleNext)}>
                                     {getStepContent(activeStep)}
