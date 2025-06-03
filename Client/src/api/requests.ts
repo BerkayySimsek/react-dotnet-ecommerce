@@ -9,7 +9,7 @@ axios.defaults.withCredentials = true;
 axios.interceptors.request.use(requests => {
     const token = store.getState().account.user?.token;
     if (token)
-        requests.headers.Authorization=`Bearer ${token}`;
+        requests.headers.Authorization = `Bearer ${token}`;
     return requests;
 })
 
@@ -72,8 +72,15 @@ const Account = {
     register: (formData: any) => queries.post("account/register", formData),
     getUser: () => queries.get("account/getuser")
 }
+
+const Order = {
+    getOrders: () => queries.get("orders"),
+    getOrder: (id: number) => queries.get(`orders/${id}`),
+    createOrder: (formData: any) => queries.post("orders", formData)
+}
+
 const requests = {
-    Catalog, Errors, Cart, Account
+    Catalog, Errors, Cart, Account, Order
 }
 
 export default requests

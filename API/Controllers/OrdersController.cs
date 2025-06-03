@@ -16,15 +16,15 @@ namespace API.Controllers
     [Authorize]
     [ApiController]
     [Route("api/[controller]")]
-    public class OrderController : ControllerBase
+    public class OrdersController : ControllerBase
     {
         private readonly DataContext _context;
-        public OrderController(DataContext context)
+        public OrdersController(DataContext context)
         {
             _context = context;
         }
 
-        [HttpGet("GetOrders")]
+        [HttpGet]
         public async Task<ActionResult<List<OrderDTO>>> GetOrders()
         {
             return await _context.Orders
@@ -34,7 +34,7 @@ namespace API.Controllers
                 .ToListAsync();
         }
 
-        [HttpGet("{id}", Name = "GetOrders")]
+        [HttpGet("{id}")]
         public async Task<ActionResult<OrderDTO?>> GetOrder(int id)
         {
             return await _context.Orders
@@ -44,7 +44,7 @@ namespace API.Controllers
                 .FirstOrDefaultAsync();
         }
 
-        [HttpPost("CreteOrder")]
+        [HttpPost]
         public async Task<ActionResult<Order>> CreateOrder(CreateOrderDTO orderDTO)
         {
             var cart = await _context.Carts
@@ -95,7 +95,7 @@ namespace API.Controllers
             var result = await _context.SaveChangesAsync() > 0;
 
             if (result)
-                return CreatedAtRoute(nameof(GetOrder), new { id = order.Id }, order.Id);
+                return CreatedAtAction(nameof(GetOrder), new { id = order.Id }, order.Id);
             return BadRequest(new ProblemDetails { Title = "Problem getting order." });
         }
     }

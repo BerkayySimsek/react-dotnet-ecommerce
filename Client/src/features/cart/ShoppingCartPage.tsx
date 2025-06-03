@@ -12,7 +12,7 @@ export default function ShoppingCartPage() {
     const { cart, status } = useAppSelector(state => state.cart)
     const dispatch = useAppDispatch()
 
-    if (cart?.cartItems.length === 0) return <Alert severity="warning">There are no items in your cart.</Alert>
+    if (!cart || cart?.cartItems.length === 0) return <Alert severity="warning">There are no items in your cart.</Alert>
     return (
         <>
             <TableContainer component={Paper}>
@@ -66,7 +66,7 @@ export default function ShoppingCartPage() {
                     </TableBody>
                 </Table>
             </TableContainer>
-            <Box display="flex" justifyContent="flex-end" sx={{mt:3}}>
+            <Box display="flex" justifyContent="flex-end" sx={{ mt: 3 }}>
                 <Button component={Link} to="/checkout" variant="contained" color="primary">Checkout</Button>
             </Box>
         </>
