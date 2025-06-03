@@ -1,5 +1,5 @@
 import { KeyboardArrowDown, ShoppingCart } from "@mui/icons-material";
-import { AppBar, Badge, Box, Button, Container, IconButton, Menu, MenuItem, Stack, Toolbar, Typography } from "@mui/material";
+import { AppBar, Badge, Box, Button, Container, IconButton, Menu, MenuItem, Stack, Toolbar } from "@mui/material";
 import { Link, NavLink } from "react-router";
 import { logout } from "../features/account/accountSlice";
 import { useAppDispatch, useAppSelector } from "../store/store";
