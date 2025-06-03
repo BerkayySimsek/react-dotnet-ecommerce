@@ -30,13 +30,10 @@ export default function Review() {
                         <PaymentsIcon color="secondary" sx={{ mr: 2 }} />Payment Information
                     </Typography>
                     <Typography gutterBottom sx={{color:"text.secondary"}}>
-                        {getValues("card_name")}
+                        {getValues("cardname")}
                     </Typography>
                     <Typography gutterBottom sx={{color:"text.secondary"}}>
-                        {getValues("card_number")}
-                    </Typography>
-                    <Typography gutterBottom sx={{color:"text.secondary"}}>
-                        {getValues("card_expiry_date")}
+                        {getValues("cardnumber")}
                     </Typography>
                 </div>
             </Stack>

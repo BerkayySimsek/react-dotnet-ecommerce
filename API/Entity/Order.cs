@@ -14,6 +14,9 @@ public class Order
     public List<OrderItem> OrderItems { get; set; } = new();
     public decimal SubTotal { get; set; }
     public decimal DeliveryFee { get; set; }
+    
+    public string? ConversationId { get; set; }
+    public string? BasketId { get; set; }
     public decimal GetTotal()
     {
         return SubTotal + DeliveryFee;
