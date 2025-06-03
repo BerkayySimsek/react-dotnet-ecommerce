@@ -9,6 +9,8 @@ import { FieldValues, FormProvider, useForm } from "react-hook-form";
 import requests from "../../api/requests";
 import { useAppDispatch } from "../../store/store";
 import { clearCart } from "../cart/cartSlice";
+import { Link } from "react-router";
+
 
 const steps = ["Shipping Information", "Payment", "Order Summary"]
 function getStepContent(step: number) {
@@ -85,7 +87,7 @@ export default function CheckoutPage() {
                                     <Typography variant="body1" sx={{ color: "text.secondary" }}>
                                         Order number <strong>#{orderId}</strong>. We will send you an email when your order is confirmed.
                                     </Typography>
-                                    <Button
+                                    <Button component={Link} to="/orders"
                                         sx={{ alignSelf: "start", width: { xs: "100%", sm: "auto" } }}
                                         variant="contained">List orders
                                     </Button>
